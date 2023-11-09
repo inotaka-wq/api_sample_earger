@@ -19,7 +19,7 @@ public interface BookMapper {
 	@Select("SELECT id, name, page_count AS pageCount, author_id FROM book")
 	List<Book> findAll();
 
-	@Select("SELECT 1402 as id, b.name, b.page_count,	b.author_id, a.id as \"author.id\",	a.first_name as \"author.first_name\",	a.last_name  as \"author.last_name\" "
+	@Select("SELECT b.id, b.name, b.page_count,	b.author_id, a.id as \"author.id\",	a.first_name as \"author.first_name\",	a.last_name  as \"author.last_name\" "
 			+ "FROM book b "
 			+ "LEFT OUTER JOIN author a ON b.author_id = a.id")
 	List<Book> findWithAuthors();
