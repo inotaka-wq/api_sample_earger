@@ -1,9 +1,18 @@
-# docker-compose.yml
-version: '3'
+version: "3"
+
 services:
-  myapp:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  demo:
+    image: maven:3
+    restart: always
+    command: mvn spring-boot:run
+    volumes:
+      - .:/opt/demo
+    working_dir: /opt/demo
     ports:
       - "8080:8080"
+    environment:
+      TZ: Asia/Tokyo
+
+volumes:
+  m2:
+    external: true
