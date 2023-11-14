@@ -29,3 +29,8 @@ query {
     }
   }
 }
+
+curl -H "Content-Type:application/json" -X POST http://localhost:8080/graphql -d '{ "query" : "query{bookAll { id name pageCount author{id firstName lastName}}}" }' 
+
+
+
